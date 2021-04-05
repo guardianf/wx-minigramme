@@ -1,2 +1,5 @@
 <!--pages/detail/detail.wxml-->
-<text>pages/detail/detail.wxml</text>
+<view>{{ house.area }}</view>
+<view>{{ house.host }}</view>
+<view>{{ house.addr }}</view>
+<view wx:if="{{ role === 'renter' }}">我要租房</view>

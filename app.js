@@ -1,3 +1,5 @@
+const util = require("./utils/util")
+
 // app.js
 App({
   onLaunch() {
@@ -5,7 +7,7 @@ App({
     const logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-
+    this.globalData.houseList = util.getHouseList(100);
     // 登录
     wx.login({
       success: res => {
@@ -14,6 +16,7 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    role: "host",// 0: manager 1: host 2: renter
   }
 })

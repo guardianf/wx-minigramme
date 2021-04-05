@@ -1,23 +1,29 @@
-// pages/detail/detail.js
+// pages/list/list.js
 Page({
+
   /**
    * 页面的初始数据
    */
   data: {
-    house: {},
-    index: 0,
-    role: getApp().globalData.role
+    menus: [
+      {
+        "text": "房屋列表",
+        "iconPath": "/static/images/home.png",
+        "selectedIconPath": "/static/images/home_active.png",
+      }, {
+        "text": "我的",
+        "iconPath": "/static/images/user.png",
+        "selectedIconPath": "/static/images/user_active.png",
+      }
+    ],
+    lists: getApp().globalData.houseList
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const index = parseInt(options.index);
-    this.index = index;
-    this.setData({
-      house: getApp().globalData.houseList[this.index]
-    })
+
   },
 
   /**
@@ -67,5 +73,11 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  onDetail: function(path) {
+    const index = path.target.dataset["index"];
+    wx.navigateTo({
+      url: `../detail/detail?index=${index}`,
+    });
   }
 })

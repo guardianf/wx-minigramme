@@ -1,0 +1,8 @@
+<!--pages/list/list.wxml-->
+<mp-cells class="list-container">
+  <mp-cell wx:for="{{ lists }}" wx:key="index" link bindtap="onDetail" data-index="{{ index }}">
+    <span slot="icon">{{ item.area }}</span>
+    <span class="list-content">{{ item.addr }}</span>
+  </mp-cell>
+</mp-cells>
+<mp-tabbar class="tab-menu" list="{{ menus }}"></mp-tabbar>
